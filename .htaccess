@@ -1,0 +1,5 @@
+RewriteEngine On
+RewriteBase /
+RewriteCond %{HTTPS}s on(s)|
+RewriteCond %{HTTP_HOST} ^(?:www\.)?domainA\.com$ [NC]
+RewriteRule ^ http://domainB.com/?referer=http%1://%{HTTP_HOST}%{REQUEST_URI} [L,NE,R=302]
